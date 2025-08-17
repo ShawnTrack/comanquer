@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://clobeh4t2adbr"]
+
+[ext_resource type="Script" uid="uid://cmemc2i08pv02" path="res://escenas/player_movement.gd" id="1_62eqe"]
+[ext_resource type="PackedScene" uid="uid://csh2ltkwu1pem" path="res://modelos/simpleObjects/cubo.fbx" id="1_smvyv"]
+[ext_resource type="PackedScene" uid="uid://c4s8l2x64qujv" path="res://modelos/simpleObjects/plano.fbx" id="3_6qgwm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" type="Node" parent="."]
+script = ExtResource("1_62eqe")
+
+[node name="cubo" parent="player" instance=ExtResource("1_smvyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044233, 2.96823, 0.00504041)
+
+[node name="enemy" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.957657, 0.287912, 0, -0.287912, 0.957657, 0, 3.19772, 7.65768)
+
+[node name="escenario" type="Node" parent="."]
+
+[node name="plano" parent="escenario" instance=ExtResource("3_6qgwm")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="escenario/plano"]
